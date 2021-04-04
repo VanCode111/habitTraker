@@ -7,11 +7,12 @@
       </ul>
     </div>
   </nav>
+  <router-view/>
 </template>
 
 <style scoped>
   nav{
     padding: 0px 20px;
-    background-color: #8e24aa;
+    background-color: #90caf9;
   }
 </style>

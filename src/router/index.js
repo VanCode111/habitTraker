@@ -10,6 +10,7 @@ const routes = [
   {
     path: '/CreateTask',
     name: 'CreateTask',
+    meta: {layout: 'mainLayout'},
     component: () => import('@/views/CreateTask.vue'),
   }
 ]
