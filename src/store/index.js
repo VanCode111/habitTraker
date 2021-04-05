@@ -10,9 +10,7 @@ export default createStore({
     },
     updateTime(state, time){
       const idx = state.tasks.findIndex(t => t.id === time.id);
-      state.tasks[idx].hours = time.hours;
-      state.tasks[idx].minutes = time.minutes;
-      state.tasks[idx].seconds = time.seconds;
+      state.tasks[idx].time += time.time;
     },
     deleteTask(state, id){
       const idx = state.tasks.findIndex(t => t.id === id);

@@ -8,7 +8,7 @@
         <div class="card-action">
           <router-link :to="'/timer/' + task.id" class="blue lighten-3 btn">Тренировать навык<i class="material-icons right">fitness_center</i> </router-link>
           <a class="red accent-3 btn delete"  @click="deleteTask"><i class="material-icons right">delete</i></a>
-          <p>Время: {{task.hours + ':' + task.minutes}}</p>
+          <p>{{time}}</p>
         </div>
       </div>
     </div>
@@ -27,6 +27,12 @@ export default {
     deleteTask() {
       this.$store.dispatch('deleteTask', this.task.id);
     }
+  },
+  computed: {
+    time () {
+      return 'Часов: ' + Math.floor(this.task.time / 3600) + " Минут: " + Math.floor(this.task.time % 3600 / 60);
+    }
+
   }
 }
 

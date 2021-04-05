@@ -15,6 +15,7 @@ export default {
   data: 
     function () {
       return {
+        time: 0,
         interval: null,
         hours: 0,
         minutes: 0,
@@ -25,27 +26,23 @@ export default {
   computed: {
     task () {return this.$store.getters.taskById(+this.$route.params.id);},
     taskTime () {
-      return this.hours + ":" + this.minutes + ':' + this.seconds;
+      function formatNumber(number){
+        return (String(number).length < 2) ? String('0' + number) : number;
+      }
+      let hours = Math.floor(this.time / 3600);
+      let minutes = Math.floor(this.time % 3600 / 60);
+      let seconds = this.time - hours*3600 - minutes*60;
+      return formatNumber(hours) + ":" + formatNumber(minutes) + ":" + formatNumber(seconds);
     },
   },
   created() {
     this.interval = setInterval(() => {
-      if(this.seconds >= 59){
-        if(this.minutes >= 59){
-          this.hours++;
-          this.minutes = 0;
-        }else{
-          this.minutes++
-        }
-        this.seconds = 0
-      }else{
-        this.seconds++;
-      }
+      this.time++;
     }, 1000);
   },
   methods: {
     setTime() {
-      this.$store.dispatch('updateTime', {hours: this.hours, seconds: this.seconds, minutes: this.minutes, id: +this.$route.params.id});
+      this.$store.dispatch('updateTime', {time: this.time, id: +this.$route.params.id});
       this.$router.push('/');
     },
   }
