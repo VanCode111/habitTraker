@@ -12,6 +12,12 @@ const routes = [
     name: 'CreateTask',
     meta: {layout: 'mainLayout'},
     component: () => import('@/views/CreateTask.vue'),
+  },
+  {
+    path: '/timer/:id',
+    name: 'Timer',
+    meta: {layout: 'Empty'},
+    component: () => import('@/views/Timer.vue'),
   }
 ]
 

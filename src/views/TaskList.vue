@@ -1,10 +1,11 @@
 <template>
   <div  class="container">
+    <h3 v-if="tasks.length">Мои навыки</h3>
     <div v-if="tasks.length" class="listItems">
-    <TaskItem v-for="key in tasks" v-bind:key="key" :description="key"></TaskItem>
+    <TaskItem v-for="key in tasks" v-bind:key="key" :task="key"></TaskItem>
     </div>
     <div v-bind:class="{changed: !tasks.length}" class="valign-wrapper col s12 m6">
-      <router-link class="addTask" to="/CreateTask" ><span>Добавить задачу</span><i class="material-icons">add</i></router-link>
+      <router-link class="addTask" to="/CreateTask" ><span>Добавить навык</span><i class="material-icons">add</i></router-link>
     </div>
   </div>
 </template>
@@ -25,9 +26,8 @@ export default {
 
 
 <style scoped>
-
-  .listItems{
-    padding-top: 20px;
+  h3{
+    margin: 20px 0px;
   }
   .valign-wrapper{
     display: flex;

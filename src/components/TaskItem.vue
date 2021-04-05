@@ -3,10 +3,11 @@
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-          <p>{{description}}</p>
+          <p>{{task.description}}</p>
         </div>
         <div class="card-action">
-          <a href="#" class="blue lighten-3 btn">Тренировать навык</a>
+          <router-link :to="'/timer/' + task.id" class="blue lighten-3 btn">Тренировать навык<i class="material-icons right">fitness_center</i> </router-link>
+          <p>Время: {{task.hours + ':' + task.minutes}}</p>
         </div>
       </div>
     </div>
@@ -17,7 +18,20 @@
 
 export default {
   name: 'TaskItem',
-  props: ['description'],
+  props: ['task'],
+  methods: {
+    show() {
+      console.log(this.task.id);
+    }
+  }
 }
 
 </script>
+
+<style scoped>
+  .card-action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

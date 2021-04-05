@@ -5,6 +5,7 @@
 <script>
 import mainLayout from '@/layouts/mainLayout.vue';
 import createLayout from '@/layouts/createLayout.vue';
+import Empty from '@/layouts/Empty.vue';
 export default {
   name: 'App',
   computed: {
@@ -15,6 +16,7 @@ export default {
   components: {
     mainLayout,
     createLayout,
+    Empty,
   },
 }
 </script>
