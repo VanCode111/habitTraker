@@ -6,7 +6,7 @@
         <div class="input-field col s12">
           <textarea placeholder="Навык" v-model="text" class="materialize-textarea"></textarea>
           <textarea placeholder="Добавь вдохновляющую цитату 🙏" v-model="quote" class="materialize-textarea"></textarea>
-          <a class="blue lighten-3 btn"  @click="addTask"><i class="material-icons right">send</i>Добавить</a>
+          <a class="btn"  @click="addTask" :class="theme"><i class="material-icons right">send</i>Добавить</a>
         </div>
       </div>
     </form>
@@ -18,6 +18,7 @@
 
 export default {
   name: 'CreateTask',
+  props: ['theme'],
   data: function () {
     return {
       text: '',
@@ -50,6 +51,12 @@ export default {
 
 
 <style scoped>
+  .btn.dark{
+    background-color: black;
+  }
+  .btn.lights{
+    background-color: #90caf9;
+  }
   .row{
     padding-top: 20px;
   }

@@ -6,7 +6,7 @@
           <p>{{task.description}}</p>
         </div>
         <div class="card-action">
-          <router-link :to="'/timer/' + task.id" class="blue lighten-3 btn">Тренировать навык<i class="material-icons right">fitness_center</i> </router-link>
+          <router-link :to="'/timer/' + task.id" class="btn" :class="theme">Тренировать навык<i class="material-icons right">fitness_center</i> </router-link>
           <a class="red accent-3 btn delete"  @click="deleteTask"><i class="material-icons right">delete</i></a>
           <p>{{time}}</p>
         </div>
@@ -19,7 +19,7 @@
 
 export default {
   name: 'TaskItem',
-  props: ['task'],
+  props: ['task', 'theme'],
   methods: {
     show() {
       console.log(this.task.id);
@@ -46,6 +46,13 @@ export default {
     margin-left: 5px;
     margin-right: auto;
   }
+  .btn.dark{
+    background-color: black;
+  }
+  .btn.lights{
+    background-color: #90caf9;
+  }
+
   .card-action{
     display: flex;
     justify-content: space-between;

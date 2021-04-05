@@ -2,7 +2,7 @@
   <div  class="container">
     <h3 v-if="tasks.length">Мои навыки</h3>
     <div v-if="tasks.length" class="listItems">
-    <TaskItem v-for="key in tasks" v-bind:key="key" :task="key"></TaskItem>
+    <TaskItem v-for="key in tasks" v-bind:key="key" :task="key" :theme="theme"></TaskItem>
     </div>
     <div v-bind:class="{changed: !tasks.length}" class="valign-wrapper col s12 m6">
       <router-link class="addTask" to="/CreateTask" ><span>Добавить навык</span><i class="material-icons">add</i></router-link>
@@ -13,6 +13,7 @@
 <script>
 import TaskItem from '@/components/TaskItem.vue';
 export default {
+  props: ['theme'],
   computed: {
     tasks() {
       return this.$store.getters.tasks;
