@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     setTime() {
+      this.$store.dispatch('updateTime', {hours: this.hours, seconds: this.seconds, minutes: this.minutes, id: +this.$route.params.id});
       this.$router.push('/');
     },
   }

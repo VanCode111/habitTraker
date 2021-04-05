@@ -7,6 +7,7 @@
         </div>
         <div class="card-action">
           <router-link :to="'/timer/' + task.id" class="blue lighten-3 btn">Тренировать навык<i class="material-icons right">fitness_center</i> </router-link>
+          <a class="red accent-3 btn delete"  @click="deleteTask"><i class="material-icons right">delete</i></a>
           <p>Время: {{task.hours + ':' + task.minutes}}</p>
         </div>
       </div>
@@ -22,6 +23,9 @@ export default {
   methods: {
     show() {
       console.log(this.task.id);
+    },
+    deleteTask() {
+      this.$store.dispatch('deleteTask', this.task.id);
     }
   }
 }
@@ -29,6 +33,13 @@ export default {
 </script>
 
 <style scoped>
+  .delete i{
+    margin: 0px;
+  }
+  .delete{
+    margin-left: 5px;
+    margin-right: auto;
+  }
   .card-action{
     display: flex;
     justify-content: space-between;
