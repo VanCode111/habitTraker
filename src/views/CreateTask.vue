@@ -4,8 +4,8 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <textarea v-model="text" id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Навык</label>
+          <textarea placeholder="Навык" v-model="text" class="materialize-textarea"></textarea>
+          <textarea placeholder="Добавь вдохновляющую цитату" v-model="quote" class="materialize-textarea"></textarea>
           <a class="blue lighten-3 btn"  @click="addTask"><i class="material-icons right">send</i>Добавить</a>
         </div>
       </div>
@@ -21,12 +21,14 @@ export default {
   data: function () {
     return {
       text: '',
+      quote: '',
     }
   },
   methods: {
     addTask () {
       let task = {
         description: this.text,
+        quote: this.quote,
         hours: 0,
         seconds: 0,
         minutes: 0,
@@ -36,6 +38,7 @@ export default {
       console.log(this.text);
       this.$store.dispatch('createTask', task);
       this.text = '';
+      this.quote = '';
       console.log(task);
       this.$router.push('/');
     },

@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="wrapper">
+    <p>{{task.quote}}</p>
     <h2>{{taskTime}}</h2>
      <a class="red accent-3 btn" @click="setTime"><i class="material-icons right">alarm_off</i>Закончить</a>
     </div>
@@ -28,10 +29,6 @@ export default {
     },
   },
   created() {
-    let task = this.$store.getters.taskById(+this.$route.params.id);
-    this.hours = task.hours;
-    this.minutes = task.minutes;
-    this.seconds = task.seconds;
     this.interval = setInterval(() => {
       if(this.seconds >= 59){
         if(this.minutes >= 59){
