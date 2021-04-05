@@ -19,6 +19,7 @@
     </div>
     
   </nav>
+  
   <router-view :theme="theme"/>
 </template>
 
@@ -61,6 +62,7 @@
 
 
 <style scoped>
+
   ul{
     display: flex;
   }
