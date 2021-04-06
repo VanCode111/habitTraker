@@ -7,7 +7,7 @@
     </transition-group>
     </div>
     <div v-bind:class="{changed: !tasks.length}" class="valign-wrapper col s12 m6">
-      <router-link class="addTask" to="/CreateTask" ><span>Добавить навык</span><i class="material-icons">add</i></router-link>
+      <router-link class="addTask" to="/CreateTask"  v-bind:class="[{btn: tasks.length}, theme]"><span>Добавить навык</span><i class="material-icons">add</i></router-link>
     </div>
   </div>
 </template>
@@ -42,12 +42,29 @@ export default {
     justify-content: center;
   }
   .valign-wrapper.changed{
+    
     height: 500px;
   }
   .addTask{
     display: flex;
     align-items: center;
   }
+
+  .addTask.btn{
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  .addTask.btn.lights{
+    background-color: #90caf9;
+  }
+  .addTask.btn.dark{
+    background-color: black;
+  }
+
+
+
   .list-enter-active, .list-leave-active {
   transition: all 0.5s;
 }

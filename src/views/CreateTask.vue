@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     addTask () {
+      
       let task = {
         description: this.text,
         quote: this.quote,
@@ -36,13 +37,13 @@ export default {
         minutes: 0,
         id: Date.now(),
       };
-      console.log('hello world');
-      console.log(this.text);
-      this.$store.dispatch('createTask', task);
+      if (this.text.length){
+        this.$store.dispatch('createTask', task);
       this.text = '';
       this.quote = '';
       console.log(task);
       this.$router.push('/');
+      }
     },
   },
 }
