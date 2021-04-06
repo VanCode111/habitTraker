@@ -30,6 +30,8 @@ export default {
 
 <style scoped>
   h3{
+    font-size: 25px;
+    color: #757575;
     margin: 20px 0px;
   }
   .container{
