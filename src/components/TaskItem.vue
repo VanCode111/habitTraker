@@ -6,8 +6,10 @@
           <p>{{task.description}}</p>
         </div>
         <div class="card-action">
+          <div class="btn-wrapper">
           <router-link :to="'/timer/' + task.id" class="btn" :class="theme">Тренировать навык<i class="material-icons right">fitness_center</i> </router-link>
           <a class="red accent-3 btn delete"  @click="deleteTask"><i class="material-icons right">delete</i></a>
+          </div>
           <p>{{time}}</p>
         </div>
       </div>
@@ -44,7 +46,6 @@ export default {
   }
   .delete{
     margin-left: 5px;
-    margin-right: auto;
   }
   .btn.dark{
     background-color: black;
@@ -52,10 +53,21 @@ export default {
   .btn.lights{
     background-color: #90caf9;
   }
-
+  .btn-wrapper{
+    display: flex;
+  }
   .card-action{
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  @media (max-width: 600px){
+    .card-action{
+      flex-wrap: wrap;
+    }
+    .btn-wrapper{
+      width: 100%;
+    }
+    
   }
 </style>
