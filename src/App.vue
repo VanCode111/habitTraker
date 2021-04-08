@@ -1,7 +1,8 @@
 <template>
-  <Loading v-if="isLoading"/>
-  <component :is="layout"/>
-  
+  <div id="app">
+    <Loading v-if="isLoading"/>
+    <component :is="layout"/>
+  </div>
 </template>
 
 <script>
@@ -35,6 +36,10 @@ export default {
 
 
 <style lang="scss" scoped>
+#app{
+  overflow: hidden;
+}
 
 @import "~materialize-css/dist/css/materialize.min.css";
+
 </style>
